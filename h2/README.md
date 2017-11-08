@@ -78,3 +78,36 @@ notice: Signed certificate request for thepeki-hp-655-notebook-pc.kinnaridlink
 notice: Removing file Puppet::SSL::CertificateRequest thepeki-hp-655-notebook-pc.kinnaridlink at '/var/lib/puppet/ssl/ca/requests/thepeki-hp-655-notebook-pc.kinnaridlink.pem'
 ~~~~
 #### Success!
+Laitetaan helloworld-vastaava moduuli ja includataan se masterin site manifestiin:
+~~~~
+class hellopeki {
+	file { '/tmp/hellopekipuppet':
+		content => "Obey your master!",
+	}
+}
+~~~~
+~~~~
+sudo cp -rv hellopeki/ /etc/puppet/modules/
+~~~~
+~~~~
+sudoedit /etc/puppet/manifests/site.pp
+~~~~
+~~~~
+include hellopeki
+~~~~
+Koska ei viitsi odotella 30min jotta näemme onnistuiko hellopeki, restarttaamme orjan puppet servicen vielä kertaalleen.
+~~~~
+sudo puppet agent --enable
+sudo service puppet restart
+cat /tmp/hellopekipuppet
+~~~~
+Ei toiminut ekalla kerralla. Katsotaan mitä masterin logit kertoo. hellopeki toimii locaalisti.
+~~~~
+sudo puppet cert list --all
+~~~~
+~~~~
++ "thepeki-hp-655-notebook-pc.kinnaridlink" (87:?????????????????????????????????????????:B1)
++ "vatukka.kinnaridlink"                    (2A:?????????????????????????????????????????:4F) (alt names: "DNS:puppet", "DNS:puppet.kinnariDlink", "DNS:vatukka.kinnariDlink", "DNS:vatukka.kinnaridlink")
+~~~~
+#### Ei nuolaista ennen kuin tipahtaa
+Onnistuin siis listaamaan orjan, kaikki näyttäisi olevan kunnossa ja orja päällä. Mutta jostain toistaiseksi tuntemattomasta syystä site manifestia ei suoriteta orjalla. Täytyy mahdollisuuksien mukaan testata saman version puppeteilla josko olisi yhteensopimattomuudesta kyse.
