@@ -13,7 +13,9 @@ sudo apt-get update
 sudo apt-get -y install git puppet tree
 ~~~~
 
-Näillä asetuksilla minä olen tottunut selviämään, mutta tämä ei vielä toimi harjoitustyönä linuxin hallintaan. Seuraavaksi olisi kiva lisätä jotain puppettia skriptiin, sillä sitähän me olemme opettelemassa. Minulla pyörii RaspberryPi huoneen nurkassa, joten ajattelin että olisi kiva testata kuinka mahtava Master pienestä vatukasta saadaan aikaan. Asennetaan puppet, puppetmaster ja varmistetaan että git löytyy myös. 
+Näillä asetuksilla minä olen tottunut selviämään, mutta tämä ei vielä toimi harjoitustyönä linuxin hallintaan. 
+### Master of the puppets
+Seuraavaksi olisi kiva lisätä jotain puppettia skriptiin, sillä sitähän me olemme opettelemassa. Minulla pyörii RaspberryPi huoneen nurkassa, joten ajattelin että olisi kiva testata kuinka mahtava Master pienestä vatukasta saadaan aikaan. Asennetaan puppet, puppetmaster ja varmistetaan että git löytyy myös. 
 ~~~~
 sudo apt-get update && sudo apt-get -y install puppet puppetmaster git
 ~~~~
@@ -75,3 +77,4 @@ sudo puppet cert --sign thepeki-hp-655-notebook-pc.kinnaridlink
 notice: Signed certificate request for thepeki-hp-655-notebook-pc.kinnaridlink
 notice: Removing file Puppet::SSL::CertificateRequest thepeki-hp-655-notebook-pc.kinnaridlink at '/var/lib/puppet/ssl/ca/requests/thepeki-hp-655-notebook-pc.kinnaridlink.pem'
 ~~~~
+#### Success!
