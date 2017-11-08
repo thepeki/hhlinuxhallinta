@@ -1,5 +1,5 @@
 class hellopeki {
 	file { '/tmp/hellopekipuppet':
-		content => "Obey your master!",
+		content => "Obey your master!\n",
 	}
 }
