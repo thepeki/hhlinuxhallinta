@@ -41,3 +41,37 @@ RaspberryPi:lläni on jo sshd ja yllä oleva komento näyttäisi onnistuvan onge
 
 Seuraavaksi kerrataan tunnilla käytyjä puppetmasterin asetuksia sivulta: http://terokarvinen.com/2012/puppetmaster-on-ubuntu-12-04
 
+Koska olen lähiverkossa kummallakin testilaitteellani, asennetaan avahi palvelemaan lokaalina dns palvelimena. Ja editoidaan conffeja jotta .local osoitteet toimivat. +Restartataan:
+~~~~
+sudo apt-get -y install avahi-utils
+sudoedit /etc/avahi/avahi-daemon.conf
+sudo service avahi-daemon restart
+~~~~
+Lisätään dns_alt_names masterin puppet.confiin & restartataan
+~~~~
+[master]
+...
+dns_alt_names = vatukka.local
+~~~~
+~~~~
+sudo service puppetmaster restart
+~~~~
+Lisätään *agentille* (Lue: orja) server ja restartataan:
+~~~~
+[agent]
+server = vatukka.local
+sudo service puppet restart
+~~~~
+Ja ihaillaan masterilla (toivottavasti) uutta certtiä puppetin listoissa.
+~~~~
+sudo puppet cert --list
+  "thepeki-hp-655-notebook-pc.kinnaridlink" (xx:xx..:xx)
+~~~~
+Ja jos orjamme löytyy kuten yllä voimme värvätä sen nousevan masterin palvelukseen.
+~~~~
+sudo puppet cert --sign thepeki-hp-655-notebook-pc.kinnaridlink
+~~~~
+~~~~
+notice: Signed certificate request for thepeki-hp-655-notebook-pc.kinnaridlink
+notice: Removing file Puppet::SSL::CertificateRequest thepeki-hp-655-notebook-pc.kinnaridlink at '/var/lib/puppet/ssl/ca/requests/thepeki-hp-655-notebook-pc.kinnaridlink.pem'
+~~~~
