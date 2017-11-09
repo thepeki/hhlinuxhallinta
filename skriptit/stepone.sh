@@ -15,3 +15,7 @@ for (( i=0;i<number;i++ ))
 do
 	mkdir -p vagrantslaves/slave-$i
 done
+
+#vagrant init bento/ubuntu-16.04
+#vagrant up
+#vagrant ssh
