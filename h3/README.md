@@ -109,3 +109,16 @@ HINT: Enter your BIOS setup and enable Virtualization Technology (VT),
 KVM acceleration can NOT be used
 ~~~~
 Päätän, että pitänee testata toisessa ympäristössä lisää...
+
+#### Labrassa uusintatesti
+
+Ajetaan sama ympäristö, vaihtaen IP osoite. Menee läpi onnistuneesti. Varmistetaan toiminta hellopeki moduulilla site.pp filessä.
+Moduuli luo onnistuneesti hello-viestin /tmp/ kansioon kummallekin orjalle.
+
+~~~~
+$ sudo puppet cert list -a
++ "orjatar01.tielab.haaga-helia.fi" (SHA256) 2C:C5:5A:FE:B4:A9:05:D9:9E:5C:9E:10:CF:AB:1B:AF:0F:CA:5C:1A:18:68:1D:7D:40:0C:6D:E8:CF:46:E2:1D
++ "orjatar02.tielab.haaga-helia.fi" (SHA256) 86:98:A7:27:08:D9:35:21:52:55:E7:96:46:B0:B6:76:A1:66:1C:54:A1:E9:00:8D:87:EA:66:B5:1B:EF:9D:07
++ "xubuntu.tielab.haaga-helia.fi"   (SHA256) 65:91:9F:59:14:EE:F7:46:F3:A0:93:FD:AF:BA:C2:5A:1F:AB:38:DA:B1:8C:1A:B1:BD:D7:F4:BB:05:6D:CB:1C (alt names: "DNS:thepekimaster", "DNS:thepekimaster.local", "DNS:xubuntu.tielab.haaga-helia.fi")
+
+~~~~

@@ -6,7 +6,7 @@ echo "I am provisioning..."
 apt-get update
 apt-get -y install puppet
 grep ^server /etc/puppet/puppet.conf || echo -e "\n[agent]\nserver=thepekimaster\n" |sudo tee -a /etc/puppet/puppet.conf
-grep thepekimaster /etc/hosts || echo -e "\n192.168.0.100 thepekimaster\n"|sudo tee -a /etc/hosts
+grep thepekimaster /etc/hosts || echo -e "\n172.28.171.74 thepekimaster\n"|sudo tee -a /etc/hosts
 puppet agent --enable
 service puppet restart
 echo -n "I am done at "
