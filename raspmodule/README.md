@@ -1,6 +1,6 @@
 # Raspberry Pi puppet conffit
 
-Tavoite: Raspberry Pi:n Raspbian käyttiksen uudelleen asennus ja käytössä olevien ohjelmien ja palveluiden uudelleen asennus puppet moduuleilla.
+Tavoite: Raspberry Pi:n Raspbian-käyttiksen uudelleenasennus ja käytössä olevien ohjelmien ja palveluiden uudelleenasennus puppet moduuleilla.
 
 ### Step 1
 Määritetään mitkä paketit ja palvelut halutaan asentaa uudestaan. Listataan ne:
@@ -11,6 +11,7 @@ Määritetään mitkä paketit ja palvelut halutaan asentaa uudestaan. Listataan
 * mumble
 * puppet
 * puppetmaster
+* git
 
 ### Step 2
 Tarkistin onko kotihakemistossa mitään asetustiedostoja mitä haluan talteen. 
@@ -24,5 +25,19 @@ Kurkataan /etc/ sisälle ja katsotaan onko siellä mitään elintärkeää.
 * apache saa niin ikään olla vielä perusasetuksillaan, koska mitään sivuja se ei tällä hetkellä tarjoile.
 
 ### Step 4
-On aika pistää SD-kortti palasiksi, ristiä sormet ja suorittaa muita ylemmän tahon lepyyttäviä toimenpiteitä. Ja sitten tarkastaa mikä menee vikaan.
+On aika pistää SD-kortti palasiksi, ristiä sormet ja suorittaa muita ylemmän tahon lepyyttäviä toimenpiteitä. Ja sitten tarkastaa mikä menee vikaan. [Raspberrypi.org ohjeilla.](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
+
+### Step 5
+Raspin konffit kuntoon. Näyttö ja näppis kiinni itse laitteeseen, ei verkkoon vielä tässä vaiheessa.
+* Pi käyttäjän passu vaihtoon - sudo passwd
+* Raspin omasta all-in-one-konffista lokalisaatiot, ssh demoni päälle, SD-kortin partition allokaatiot kohdilleen ja restart - sudo raspi-config
+* Uusi käyttäjä - sudo adduser
+* Uusi käyttäjä sudo ryhmään - sudo adduser nimi sudo
+* Kirjaudutaan ulos Pi ja sisään omalla, testataan että uudella käyttäjällä tosiaan oikeudet sudoilla - sudo whoami && sudo visudo
+* Pistetään Pi-käyttäjä pannaan - sudo passwd pi -l
+* Vaihdetaan sshd default portista omaan super-sekret numeroon - sudoedit /etc/ssh/sshd_config
+* Restartataan sshd - sudo service ssh restart
+* Kytketään laite verkkoon ja nautitaan loput konffailut päättömälle palvelimelle.
+* Logataan sisään uudella käyttäjällä ja ajetaan update - sudo apt-get update
+
 
