@@ -98,4 +98,7 @@ E: Sub-process /usr/bin/dpkg returned an error code (1)
 
 Ei ole näköjään kerinnyt vielä rasbianin fixeihin. Yllättäen se komponentti joka on windowsin kanssa toimintaa mahdollistava työkalu on se joka pettää. Ei olisi taas kannattanut lähteä korjaamaan toimivaa palvelinta. Kommentoidaan samba pois listalta.
 
-Irssi sentään toimii ja saunakaan ei palanut. Kai sekin voittoa on.
+Irssi ja mumble sentään toimii ja saunakaan ei palanut. Kai sekin voittoa on.
+
+![irssi](https://i.imgur.com/UcU8vzj.png "moderni keskusteluohjelma")
+![mumble](https://i.imgur.com/pnugCCA.png "mumina on suomalaista small talkia")
