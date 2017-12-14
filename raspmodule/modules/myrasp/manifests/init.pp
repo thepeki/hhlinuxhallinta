@@ -19,9 +19,8 @@ class myrasp {
 #      file { '/etc/samba/smb.conf':
 #          content => template("myrasp/smb.conf"),
 #          require => Package["samba"],
-#          notify => Service["samba"],
-          
-      }
+#          notify => Service["samba"],        
+#      }
       
       # servicet
       service { 'apache2':
