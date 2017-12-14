@@ -13,13 +13,13 @@ class myrasp {
       package { 'git': }
       package { 'apache2': }
       package { 'mumble-server': }
-      package { 'samba': }
+#      package { 'samba': }
       
       # filet
-      file { '/etc/samba/smb.conf':
-          content => template("myrasp/smb.conf"),
-          require => Package["samba"],
-          notify => Service["samba"],
+#      file { '/etc/samba/smb.conf':
+#          content => template("myrasp/smb.conf"),
+#          require => Package["samba"],
+#          notify => Service["samba"],
           
       }
       
@@ -30,8 +30,8 @@ class myrasp {
       service { 'mumble-server':
           require => Package["mumble-server"],
       }
-      service { 'samba':
-          require => Package["samba"],
-      }
+ #     service { 'samba':
+ #         require => Package["samba"],
+ #     }
       
 }
