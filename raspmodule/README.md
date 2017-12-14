@@ -93,7 +93,8 @@ Errors were encountered while processing:
  samba
 E: Sub-process /usr/bin/dpkg returned an error code (1)
 ~~~~
-[Ubuntu bugi listalla](https://bugs.launchpad.net/ubuntu/+source/samba/+bug/1610361)[Debian listalla](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=796789)
+[Ubuntu bugi listalla](https://bugs.launchpad.net/ubuntu/+source/samba/+bug/1610361)
+[Debian listalla](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=796789)
 
 Ei ole näköjään kerinnyt vielä rasbianin fixeihin. Yllättäen se komponentti joka on windowsin kanssa toimintaa mahdollistava työkalu on se joka pettää. Ei olisi taas kannattanut lähteä korjaamaan toimivaa palvelinta. Kommentoidaan samba pois listalta.
 
